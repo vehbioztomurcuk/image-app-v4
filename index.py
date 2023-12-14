@@ -26,13 +26,17 @@ def download_images(keyword, output_folder, num_images=1, min_width=1000, min_he
 if __name__ == "__main__":
     # Ask the user for the keyword and the number of images
     user_input = input("Enter the search keyword and the number of images (e.g., 'apple 5'): ")
-    search_keyword, num_images_str = user_input.split()
+    
+    # Split the input by spaces and join the parts after the first one as the keyword
+    parts = user_input.split()
+    search_keyword = ' '.join(parts[:-1])
+    num_images_str = parts[-1]
 
     # Convert the number of images to an integer
     num_images = int(num_images_str)
 
     # Specify the output folder
-    output_folder = "/home/user1/image-app-v4/downloaded-images"
+    output_folder = "/home/user1/github-projects/image-app-v4/downloaded-images/"
 
     # Specify the minimum dimensions for qualifying images
     min_width = 1000
@@ -43,3 +47,4 @@ if __name__ == "__main__":
 
     # Download images and save them to the specified folder
     download_images(search_keyword, output_folder, num_images, min_width, min_height)
+
